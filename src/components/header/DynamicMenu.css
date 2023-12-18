@@ -21,7 +21,8 @@
 
 .dropdown-menu.active{
     opacity: 1;
-    top: 60px;
+    top:  45px;
+    right: 150px;
     visibility: visible;
     transform: translateY(0);
     transition: var(--speed) ease;

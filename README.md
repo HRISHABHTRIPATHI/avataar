@@ -45,6 +45,15 @@ Install Node on your system for this project
         npm start
         ```
 
+### Deployment
+1. Deploy your React project
+    * Windows/Mac/Linux
+        ```sh
+        npm install gh-pages --save-dev
+        npm run deploy
+        ```
+
+
 <!-- CONTACT -->
 ## Contact
 
@@ -53,5 +62,7 @@ Hrishabh Tripathi -  hrishabhtripathi54@gmail.com
 Linkedin : [hrishabhtripathi](https://www.linkedin.com/in/hrishabhtripathi/)
 
 Project Link: [https://github.com/HRISHABHTRIPATHI/avataar](https://github.com/HRISHABHTRIPATHI/avataar)
+
+
 
 

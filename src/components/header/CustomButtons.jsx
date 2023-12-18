@@ -28,40 +28,70 @@ const LoginButton = styled(Button)`
 `
 
 
-const CustomButtons = () => {
-    const [open, setOpen] = useState(false);
+const DropdownMenu = ({ setOpen }) => {
+    const handleMouseEnter = () => {
+      setOpen(true);
+    };
+  
+    const handleMouseLeave = () => {
+      setOpen(false);
+    };
+  
     return (
-        <Wrapper>
-            <LoginButton variant="Contained">Login</LoginButton>
-
-            <Typography style={{marginTop: 5, width: 135}}>Become a Seller</Typography>
-            <div className="menu-container">
-                <div className="menu-trigger" style={{marginTop:5}} onClick={()=>{setOpen(!open)}}>
-                    More
-                </div>
-                    <div className={`dropdown-menu ${open? 'active' : 'inactive'}`}>
-                        <ul>
-                            <DropdownItem text = {'Edit Profile'}/>
-                            <DropdownItem text = {'Settings'}/>
-                            <DropdownItem text = {'Orders'}/>
-                        </ul>
-                </div>
-            </div>
-
-            <Container>
-                <ShoppingCart/>
-                <Typography>Cart</Typography>
-            </Container>
-        </Wrapper>
-    )
-}
-
+      <div className={`dropdown-menu active`} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+        <ul>
+          <DropdownItem text={'Edit Profile'} />
+          <DropdownItem text={'Settings'} />
+          <DropdownItem text={'Orders'} />
+        </ul>
+      </div>
+    );
+  };
+  
+  const MoreMenu = ({ setOpen }) => {
+    const handleMouseEnter = () => {
+      setOpen(true);
+    };
+  
+    return (
+      <div className="menu-trigger" style={{ marginTop: 5 }} onMouseEnter={handleMouseEnter}>
+        More
+      </div>
+    );
+  };
+  
+  const CustomButtons = () => {
+    const [open, setOpen] = useState(false);
+  
+    const handleWrapperMouseLeave = () => {
+      setOpen(false);
+    };
+  
+    return (
+      <Wrapper onMouseLeave={handleWrapperMouseLeave}>
+        <LoginButton variant="Contained">Login</LoginButton>
+        <Typography style={{ marginTop: 5, width: 135 }}>Become a Seller</Typography>
+        <div className="menu-container">
+          <MoreMenu setOpen={setOpen} />
+          {open && <DropdownMenu setOpen={setOpen} />}
+        </div>
+        <Container>
+          <ShoppingCart />
+          <Typography>Cart</Typography>
+        </Container>
+      </Wrapper>
+    );
+  };
+  
+  
+  
+  
 function DropdownItem(props){
-    return(
-        <li className="dropdownItem">
-            <a> {props.text} </a>
-        </li>
-    )
-}
+        return(
+            <li className="dropdownItem">
+                <a> {props.text} </a>
+            </li>
+        )
+    }
 
 export default CustomButtons; 
