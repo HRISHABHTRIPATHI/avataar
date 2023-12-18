@@ -10,7 +10,7 @@
 </div>
 
 <p align="center">
-  <img src="./Output.png" width="720" title="Output">
+  <img src="Output.png" width="720" title="Output">
 </p>
 
 <!-- GETTING STARTED -->
