@@ -4,7 +4,7 @@
 
   <p align="left">
     <br />
-    <a href="#"><strong>Its an assignment given by Avataar.ai in which I made a Dyanmic menu and Carousel without using any library.</strong></a>
+    <a href="#"><strong>Its an assignment given by Avataar.ai in which I made a Dynamic menu and Carousel without using any library.</strong></a>
     <br />
   </p>
 </div>
