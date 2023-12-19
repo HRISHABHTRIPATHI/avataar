@@ -1,7 +1,7 @@
 import { Box, Button, Typography, styled } from "@mui/material";
 import { ShoppingCart,}from '@mui/icons-material';
 
-import './DynamicMenu.css';
+import './MoreMenu.css';
 import { useState } from "react";
 
 const Wrapper = styled(Box)`
@@ -29,69 +29,69 @@ const LoginButton = styled(Button)`
 
 
 const DropdownMenu = ({ setOpen }) => {
-    const handleMouseEnter = () => {
+  const handleMouseEnter = () => {
       setOpen(true);
-    };
+  };
   
-    const handleMouseLeave = () => {
+  const handleMouseLeave = () => {
       setOpen(false);
-    };
+  };
   
-    return (
-      <div className={`dropdown-menu active`} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-        <ul>
-          <DropdownItem text={'Edit Profile'} />
-          <DropdownItem text={'Settings'} />
-          <DropdownItem text={'Orders'} />
-        </ul>
+  return (
+    <div className={`dropdown-menu active`} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+      <ul>
+        <DropdownItem text={'Edit Profile'} />
+        <DropdownItem text={'Settings'} />
+        <DropdownItem text={'Orders'} />
+      </ul>
+    </div>
+  );
+};
+  
+const MoreMenu = ({ setOpen }) => {
+  const handleMouseEnter = () => {
+    setOpen(true);
+  };
+ 
+  return (
+    <div className="menu-trigger" style={{ marginTop: 5 }} onMouseEnter={handleMouseEnter}>
+      More
+    </div>
+  );
+};
+  
+const CustomButtons = () => {
+  const [open, setOpen] = useState(false);
+  
+  const handleWrapperMouseLeave = () => {
+    setOpen(false);
+  };
+
+  return (
+    <Wrapper onMouseLeave={handleWrapperMouseLeave}>
+      <LoginButton variant="Contained">Login</LoginButton>
+      <Typography style={{ marginTop: 5, width: 135 }}>Become a Seller</Typography>
+      <div className="menu-container">
+        <MoreMenu setOpen={setOpen} />
+        {open && <DropdownMenu setOpen={setOpen} />}
       </div>
-    );
-  };
-  
-  const MoreMenu = ({ setOpen }) => {
-    const handleMouseEnter = () => {
-      setOpen(true);
-    };
-  
-    return (
-      <div className="menu-trigger" style={{ marginTop: 5 }} onMouseEnter={handleMouseEnter}>
-        More
-      </div>
-    );
-  };
-  
-  const CustomButtons = () => {
-    const [open, setOpen] = useState(false);
-  
-    const handleWrapperMouseLeave = () => {
-      setOpen(false);
-    };
-  
-    return (
-      <Wrapper onMouseLeave={handleWrapperMouseLeave}>
-        <LoginButton variant="Contained">Login</LoginButton>
-        <Typography style={{ marginTop: 5, width: 135 }}>Become a Seller</Typography>
-        <div className="menu-container">
-          <MoreMenu setOpen={setOpen} />
-          {open && <DropdownMenu setOpen={setOpen} />}
-        </div>
-        <Container>
-          <ShoppingCart />
-          <Typography>Cart</Typography>
-        </Container>
-      </Wrapper>
-    );
-  };
+      <Container>
+        <ShoppingCart />
+        <Typography>Cart</Typography>
+      </Container>
+    </Wrapper>
+  );
+};
   
   
   
   
 function DropdownItem(props){
-        return(
-            <li className="dropdownItem">
-                <a> {props.text} </a>
-            </li>
-        )
-    }
+  return(
+    <li className="dropdownItem">
+      <a> {props.text} </a>
+    </li>
+  )
+}
 
 export default CustomButtons; 

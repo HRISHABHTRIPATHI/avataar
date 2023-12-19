@@ -3,7 +3,8 @@ import React from 'react';
 import Carousel from './Carousel';
 
 //components
-import NavBar from "./NavBar";
+
+import CategoryNavbar from "../CatogoryNavbar/CategoryNavbar";
 
 
 const items = [
@@ -18,7 +19,8 @@ const items = [
 const Home = () => {
     return (
         <Fragment>
-            <NavBar/>
+            {/* <NavBar/> */}
+            <CategoryNavbar/>
             <Carousel items={items} />
         </Fragment>
     )
