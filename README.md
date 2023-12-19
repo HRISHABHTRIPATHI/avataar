@@ -50,8 +50,12 @@ Install Node on your system for this project
     * Windows/Mac/Linux
         ```sh
         npm install gh-pages --save-dev
+        
+        ```
+        ```sh
         npm run deploy
         ```
+        
 
 
 <!-- CONTACT -->
